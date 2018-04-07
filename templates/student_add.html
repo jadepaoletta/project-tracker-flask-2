@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    Create a new student by completing the following form:
+  <form action="/student-add" method="POST">
+      <label>Enter GitHub username
+          <input type="text" name="github">
+      </label>
+      <label>Enter first name
+            <input type="text" name="first">
+        </label>
+        <label>Enter lirst name
+            <input type="text" name="last">
+        </label>
+
+      <input type="submit" value="Add Student">
+  </form>
+  {%if link %}
+    <a href="/student?github={{github}}">Click to go to student info</a>
+    {% endif %}
+
+    {% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         <div>{{ message }} </div>
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+
+</body>
+</html>
